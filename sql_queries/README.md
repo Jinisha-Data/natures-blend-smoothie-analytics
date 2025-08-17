@@ -1,14 +1,1 @@
--- 1. Select all columns from customers
-SELECT * FROM customers;
 
--- 2. Select distinct smoothie types from smoothies
-SELECT DISTINCT type FROM smoothies;
-
--- 3. Show only name and base_price for all smoothies
-SELECT name, base_price FROM smoothies;
-
--- 4. Limit the result to the first 3 orders
-SELECT * FROM orders LIMIT 3;
-
--- 5. Skip the first 2 orders and display the rest
-SELECT * FROM orders LIMIT 3 OFFSET 2;
