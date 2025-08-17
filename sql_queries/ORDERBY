@@ -1,0 +1,5 @@
+-- 11. List smoothies sorted by base_price descending
+SELECT name FROM smoothies ORDER BY base_price DESC;
+
+-- 12. List customers sorted by city ascending and then by age descending
+SELECT * FROM customers ORDER BY city ASC, age DESC;
