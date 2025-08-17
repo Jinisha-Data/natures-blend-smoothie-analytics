@@ -1,0 +1,39 @@
+-- ============================
+-- SECTION 4 – JOINS
+-- ============================
+
+-- 13. INNER JOIN: List all orders with customer name and smoothie name
+SELECT cu.name AS customer_name, s.name AS smoothie_name
+FROM orders o
+JOIN customers cu ON cu.customer_id = o.customer_id
+JOIN smoothies s ON s.smoothie_id = o.smoothie_id;
+
+-- 14. INNER JOIN: List smoothies and their ingredients
+SELECT s.name AS smoothie_name, i.ingredient_name
+FROM smoothie_ingredients si
+JOIN smoothies s ON s.smoothie_id = si.smoothie_id
+JOIN ingredients i ON i.ingredient_id = si.ingredient_id;
+
+-- 15. INNER JOIN: Find customers who ordered vegan smoothies
+SELECT c.name AS customer_name, s.type AS smoothie_type
+FROM orders o
+JOIN customers c ON c.customer_id = o.customer_id
+JOIN smoothies s ON s.smoothie_id = o.smoothie_id
+WHERE s.type = 'vegan';
+
+-- 17. LEFT JOIN: List all smoothies and their ingredients, including smoothies with no ingredients
+SELECT s.name AS smoothie_name, i.ingredient_name AS ingredient_name
+FROM smoothies s
+LEFT JOIN smoothie_ingredients si ON s.smoothie_id = si.smoothie_id
+LEFT JOIN ingredients i ON i.ingredient_id = si.ingredient_id;
+
+-- 18. RIGHT JOIN: List all ingredient entries, even if a smoothie is missing
+SELECT i.ingredient_name AS ingredient_name, s.name AS smoothie_name
+FROM smoothie_ingredients si
+RIGHT JOIN ingredients i ON i.ingredient_id = si.ingredient_id
+LEFT JOIN smoothies s ON s.smoothie_id = si.smoothie_id;
+
+-- 19. CROSS JOIN: Show all possible combinations of customers and smoothies
+SELECT c.name AS customer_name, s.name AS smoothie_name
+FROM customers c
+CROSS JOIN smoothies s;
