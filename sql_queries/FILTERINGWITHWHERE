@@ -1,0 +1,14 @@
+-- 6. Find customers older than 30
+SELECT * FROM customers WHERE age > 30;
+
+-- 7. Find all orders paid by Card
+SELECT * FROM orders WHERE payment_method = 'Card';
+
+-- 8. Find smoothies with calories between 150 and 200
+SELECT name FROM smoothies WHERE calories BETWEEN 150 AND 200;
+
+-- 9. Find all female customers in Calgary
+SELECT name FROM customers WHERE gender = 'Female' AND city = 'Calgary';
+
+-- 10. Find smoothies with names containing "Boost"
+SELECT name FROM smoothies WHERE name LIKE '%Boost%';
