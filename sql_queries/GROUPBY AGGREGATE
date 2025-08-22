@@ -1,0 +1,34 @@
+-- 21. GROUP BY: Total sales (price_paid) per smoothie
+SELECT s.name AS smoothie_name, 
+       SUM(o.price_paid) AS total_sales
+FROM orders o
+JOIN smoothies s ON s.smoothie_id = o.smoothie_id
+GROUP BY s.name;
+
+-- 22. GROUP BY: Average calories per smoothie type
+SELECT type AS smoothie_type, 
+       AVG(calories) AS avg_calories
+FROM smoothies
+GROUP BY type;
+
+-- 23. GROUP BY: Count of orders per city
+SELECT c.city, 
+       COUNT(o.order_id) AS total_orders
+FROM orders o
+JOIN customers c ON c.customer_id = o.customer_id
+GROUP BY c.city;
+
+-- 24. GROUP BY: Total protein sold per smoothie type
+SELECT s.type AS smoothie_type, 
+       SUM(s.protein_g) AS total_protein_sold
+FROM orders o
+JOIN smoothies s ON s.smoothie_id = o.smoothie_id
+GROUP BY s.type;
+
+-- 25. GROUP BY + HAVING: Smoothies with total sales above $10
+SELECT s.name AS smoothie_name, 
+       SUM(o.price_paid) AS total_sales
+FROM orders o
+JOIN smoothies s ON s.smoothie_id = o.smoothie_id
+GROUP BY s.name
+HAVING SUM(o.price_paid) > 10;
