@@ -1,0 +1,32 @@
+26. ROUND: Round the base_price to nearest integer
+SELECT name AS smoothie_name, 
+       base_price, 
+       ROUND(base_price) AS rounded_price
+FROM smoothies;
+
+27. CONCAT: Concatenate first name + last name (assuming columns exist)
+SELECT CONCAT(first_name, ' ', last_name) AS full_name
+FROM customers;
+
+28. ARITHMETIC: Calculate remaining stock after hypothetical order
+  (assuming stock_qty and quantity_used columns exist in ingredients)
+SELECT ingredient_name, 
+       stock_qty, 
+       stock_qty - 5 AS remaining_stock_after_order
+FROM ingredients;
+
+29. DATE FUNCTIONS: Extract month and year from order_date
+SELECT order_id, 
+       order_date, 
+       MONTH(order_date) AS order_month, 
+       YEAR(order_date) AS order_year
+FROM orders;
+
+30. CASE WHEN: Label smoothies as High/Low Protein
+SELECT name AS smoothie_name, 
+       protein_g,
+       CASE 
+            WHEN protein_g > 10 THEN 'High Protein'
+            ELSE 'Low Protein'
+       END AS protein_label
+FROM smoothies;
