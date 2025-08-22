@@ -1,0 +1,30 @@
+31. Find smoothies ordered by customers from Calgary
+SELECT DISTINCT s.name AS smoothie_name
+FROM smoothies s
+JOIN orders o ON s.smoothie_id = o.smoothie_id
+WHERE o.customer_id IN (
+    SELECT customer_id 
+    FROM customers 
+    WHERE city = 'Calgary'
+);
+
+32. Customers who ordered the most expensive smoothie
+SELECT DISTINCT c.name AS customer_name
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.smoothie_id = (
+    SELECT smoothie_id 
+    FROM smoothies 
+    ORDER BY base_price DESC 
+    LIMIT 1
+);
+
+33. List smoothies that use Almond Milk
+SELECT s.name AS smoothie_name
+FROM smoothies s
+WHERE s.smoothie_id IN (
+    SELECT si.smoothie_id
+    FROM smoothie_ingredients si
+    JOIN ingredients i ON i.ingredient_id = si.ingredient_id
+    WHERE i.ingredient_name = 'Almond Milk'
+);
