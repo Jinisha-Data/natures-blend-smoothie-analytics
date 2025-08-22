@@ -1,0 +1,7 @@
+38. Add column email to customers
+ALTER TABLE customers
+ADD COLUMN email VARCHAR(100);
+
+39. Create an index on orders(order_date)
+CREATE INDEX idx_order_date
+ON orders(order_date);
