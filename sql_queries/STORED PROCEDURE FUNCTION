@@ -1,0 +1,30 @@
+41. Stored Procedure: Get all orders for a given customer
+DELIMITER //
+CREATE PROCEDURE GetCustomerOrders(IN customer_id_input INT)
+BEGIN
+    SELECT o.order_id, s.name AS smoothie_name, o.price_paid, o.order_date
+    FROM orders o
+    JOIN smoothies s ON s.smoothie_id = o.smoothie_id
+    WHERE o.customer_id = customer_id_input;
+END //
+DELIMITER ;
+
+-- Example usage:
+-- CALL GetCustomerOrders(1);
+
+42. Function: Return total revenue for a smoothie
+DELIMITER //
+CREATE FUNCTION GetSmoothieRevenue(smoothie_id_input INT) 
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE total DECIMAL(10,2);
+    SELECT IFNULL(SUM(price_paid),0) INTO total
+    FROM orders
+    WHERE smoothie_id = smoothie_id_input;
+    RETURN total;
+END //
+DELIMITER ;
+
+-- Example usage:
+-- SELECT GetSmoothieRevenue(2);
