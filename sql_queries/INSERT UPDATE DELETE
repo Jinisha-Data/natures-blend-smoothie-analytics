@@ -1,0 +1,15 @@
+35. Add a new customer
+INSERT INTO customers (customer_id, name, city) 
+VALUES (6, 'Sophia Brown', 'Toronto');
+
+36. Update stock for an ingredient
+UPDATE ingredients
+SET stock_qty = stock_qty - 10
+WHERE ingredient_name = 'Banana';
+
+37. Delete a smoothie with zero orders
+DELETE FROM smoothies
+WHERE smoothie_id NOT IN (
+    SELECT DISTINCT smoothie_id 
+    FROM orders
+);
