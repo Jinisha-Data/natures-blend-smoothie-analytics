@@ -1,0 +1,6 @@
+34. List all customer cities and smoothie types in a single column
+SELECT city AS info
+FROM customers
+UNION
+SELECT type AS info
+FROM smoothies;
