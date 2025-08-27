@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+
+# 1. Bar chart: Calories per smoothie
+plt.bar(df["name"], df["calories"])
+plt.xticks(rotation=45)
+plt.ylabel("Calories")
+plt.title("Calories per Smoothie")
+plt.show()
+
+# 2. Bar chart: Protein per smoothie
+plt.bar(df["name"], df["protein"], color="orange")
+plt.xticks(rotation=45)
+plt.ylabel("Protein (g)")
+plt.title("Protein per Smoothie")
+plt.show()
+
+# 3. Scatter plot: Sugar vs Calories
+plt.scatter(df["sugar"], df["calories"], c="red")
+plt.xlabel("Sugar (g)")
+plt.ylabel("Calories")
+plt.title("Sugar vs Calories")
+plt.show()
+
+# 4. Pie chart: Distribution of smoothie types
+df["type"].value_counts().plot(kind="pie", autopct="%1.1f%%")
+plt.title("Smoothie Types Distribution")
+plt.ylabel("")
+plt.show()
