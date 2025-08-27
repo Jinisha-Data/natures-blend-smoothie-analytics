@@ -1,39 +1,38 @@
 import numpy as np
 
-# Convert columns to NumPy arrays
 calories = df['calories'].to_numpy()
 protein = df['protein'].to_numpy()
 sugar = df['sugar'].to_numpy()
 price = df['base_price'].to_numpy()
 
-# 1. Average calories
+1. Average calories
 avg_calories = np.mean(calories)
 print("Average calories:", avg_calories)
 
-# 2. Maximum protein
+2. Maximum protein
 max_protein = np.max(protein)
 print("Maximum protein:", max_protein)
 
-# 3. Minimum sugar
+3. Minimum sugar
 min_sugar = np.min(sugar)
 print("Minimum sugar:", min_sugar)
 
-# 4. Total sugar
+4. Total sugar
 total_sugar = np.sum(sugar)
 print("Total sugar:", total_sugar)
 
-# 5. Standard deviation of price
+5. Standard deviation of price
 std_price = np.std(price)
 print("Standard deviation of price:", std_price)
 
-# 6. Discounted price (10% off) using NumPy
+6. Discounted price (10% off) using NumPy
 discount_price = price * 0.9
 print("Discounted prices:", discount_price)
 
-# 7. Smoothies with calories > 200 (boolean mask)
+7. Smoothies with calories > 200 (boolean mask)
 high_calorie_mask = calories > 200
 print("High calorie smoothies mask:", high_calorie_mask)
 
-# 8. Indices of smoothies with protein > 10
+8. Indices of smoothies with protein > 10
 high_protein_indices = np.where(protein > 10)[0]
 print("Indices of smoothies with protein > 10:", high_protein_indices)
