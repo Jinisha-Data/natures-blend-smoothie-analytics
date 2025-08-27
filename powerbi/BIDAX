@@ -1,0 +1,5 @@
+AVE PROTEIN = AVERAGE('nature_smoothie_shop smoothies'[protein])
+calorie rank = RANKX(ALL('nature_smoothie_shop smoothies'), 'nature_smoothie_shop smoothies'[calories], , DESC)
+PRICE PER CALORIE = DIVIDE('nature_smoothie_shop smoothies'[base_price], 'nature_smoothie_shop smoothies'[calories])
+Protein Level = IF('nature_smoothie_shop smoothies'[protein] > 5, "High", "Low")
+Total Calories = SUM('nature_smoothie_shop smoothies'[calories])
