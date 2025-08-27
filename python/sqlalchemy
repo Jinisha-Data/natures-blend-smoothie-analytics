@@ -1,0 +1,38 @@
+# 1. Show all smoothies
+print(df)
+
+# 2. Select only the name and type of each smoothie
+print(df[['name', 'type']])
+
+# 3. Find all smoothies that are vegan
+print(df[df['type'] == 'vegan'])
+
+# 4. Find all smoothies with calories greater than 180
+print(df[df['calories'] > 180])
+
+# 5. Get the average base price of all smoothies
+print(df['base_price'].mean())
+
+# 6. Find the smoothie with the highest protein
+print(df.loc[df['protein'].idxmax()])
+
+# 7. Find the smoothie with the lowest sugar
+print(df.loc[df['sugar'].idxmin()])
+
+# 8. Count how many smoothies are of each type
+print(df['type'].value_counts())
+
+# 9. Sort smoothies by calories in descending order
+print(df.sort_values(by='calories', ascending=False))
+
+# 10. Show only smoothies that cost more than $8
+print(df[df['base_price'] > 8])
+
+# 11. Get the total calories of all smoothies combined
+print(df['calories'].sum())
+
+# 12. Calculate average sugar per smoothie type
+print(df.groupby('type')['sugar'].mean())
+
+# 13. Show smoothies with calories between 150 and 200
+print(df[(df['calories'] >= 150) & (df['calories'] <= 200)])
