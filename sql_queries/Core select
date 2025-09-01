@@ -1,7 +1,7 @@
 -- 1. Select all columns from customers
 SELECT * FROM customers;
 
--- 2. Select distinct smoothie types from smoothies
+-- 2. Select distinct type from smoothies
 SELECT DISTINCT type FROM smoothies;
 
 -- 3. Show only name and base_price for all smoothies
