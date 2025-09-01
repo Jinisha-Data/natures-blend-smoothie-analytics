@@ -20,7 +20,7 @@ GROUP BY c.city;
 
 24. GROUP BY: Total protein sold per smoothie type
 SELECT s.type AS smoothie_type, 
-       SUM(s.protein_g) AS total_protein_sold
+       SUM(s.protein) AS total_protein_sold
 FROM orders o
 JOIN smoothies s ON s.smoothie_id = o.smoothie_id
 GROUP BY s.type;
