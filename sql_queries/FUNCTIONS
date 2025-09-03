@@ -9,7 +9,6 @@ SELECT CONCAT(first_name, ' ', last_name) AS full_name
 FROM customers;
 
 28. ARITHMETIC: Calculate remaining stock after hypothetical order
-  (assuming stock_qty and quantity_used columns exist in ingredients)
 SELECT ingredient_name, 
        stock_qty, 
        stock_qty - 5 AS remaining_stock_after_order
