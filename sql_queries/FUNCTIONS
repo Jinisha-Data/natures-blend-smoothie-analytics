@@ -23,9 +23,9 @@ FROM orders;
 
 30. CASE WHEN: Label smoothies as High/Low Protein
 SELECT name AS smoothie_name, 
-       protein_g,
+       protein,
        CASE 
-            WHEN protein_g > 10 THEN 'High Protein'
+            WHEN protein > 10 THEN 'High Protein'
             ELSE 'Low Protein'
        END AS protein_label
 FROM smoothies;
